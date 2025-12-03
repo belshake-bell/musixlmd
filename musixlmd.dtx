@@ -1,0 +1,340 @@
+% \iffalse
+%
+%   musixlmd.dtx
+%
+%<*driver>
+\documentclass[lualatex,a4paper,openany,ja=standard,jafont=bizud,jbase=12Q,%
+               nomag*,textwidth=44zw]{bxjsarticle}
+\usepackage{doc}
+\usepackage{metalogo}
+\providecommand*{\eTeX}{$\varepsilon$-\TeX}
+\providecommand*{\pLaTeX}{p\kern-.05em\LaTeX}
+\providecommand*{\pLaTeXe}{p\kern-.05em\LaTeXe}
+\providecommand*{\upTeX}{u\pTeX}
+\providecommand*{\XeTeX}{XeTeX}
+\usepackage{ifptex}
+\ifptex
+  \xspcode"5C=1 %% \
+  \xspcode"22=1 %% "
+\fi
+\setpagelayout*{vdivide={1in,,1in},footskip=0.5in,hdivide={2in,44\zw,}}
+\setlength\marginparpush{0pt}
+\usepackage{etoolbox}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{xspace}
+\usepackage{ifpdf}
+\usepackage{hyperref}
+ %\usepackage{pxjahyper}
+ %\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\definecolor{myblue}{rgb}{0,0,0.75}
+\definecolor{mygreen}{rgb}{0,0.45,0}
+\hypersetup{colorlinks,hyperfootnotes=false,linkcolor=myblue,urlcolor=mygreen}
+\CodelineNumbered
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges                  % Gather update information
+\setcounter{StandardModuleDepth}{1}
+
+\makeatletter
+\def\TikZ{Ti\emph{k}Z}
+\newcommand*{\file}[1]{\texttt{#1}}
+\newcommand*{\Lcount}[1]{\textsl{\small#1}}
+\newcommand*{\Lopt}[1]{\textsf{#1}}
+\newcounter{@clineno}
+\def\mlineplus#1{\setcounter{@clineno}{\arabic{CodelineNo}}%
+   \addtocounter{@clineno}{#1}\arabic{@clineno}}
+\def\cmd#1{\cs{\expandafter\cmd@to@cs\string#1}}
+\def\cmd@to@cs#1#2{\char\number`#2\relax}
+\DeclareRobustCommand{\cs}[1]{\texttt{\char`\\#1}}
+\providecommand{\marg}[1]{%
+  {\ttfamily\char`\{}\meta{#1}{\ttfamily\char`\}}}
+\providecommand{\oarg}[1]{%
+  {\ttfamily[}\meta{#1}{\ttfamily]}}
+\makeatother
+
+\GetFileInfo{musixlmd.dtx}
+\begin{document}
+  \DocInput{musixlmd.dtx}
+\end{document}
+%</driver>
+%
+% \fi
+%  \changes{ver.~1.0.0}{2025/12/03}
+%    {make this .dtx file}
+% \iffalse TeX commands \fi
+% \DoNotIndex{\ ,\-,\/}
+% \DoNotIndex{\above,\abovedisplayshortskip,\abovedisplayskip}
+% \DoNotIndex{\abovewithdelims,\accent,\adjdemerits}
+% \DoNotIndex{\advance,\afterassignment,\aftergroup}
+% \DoNotIndex{\atop,\atopwithdelims}
+% \DoNotIndex{\badness,\baselineskip,\batchmode}
+% \DoNotIndex{\begingroup,\belowdisplayshortskip,\belowdisplayskip}
+% \DoNotIndex{\binoppenalty,\botmark,\box}
+% \DoNotIndex{\boxmaxdepth,\brokenpenalty}
+% \DoNotIndex{\catcode,\char,\chardef}
+% \DoNotIndex{\cleaders,\closein,\closeout}
+% \DoNotIndex{\clubpenalty,\copy,\count}
+% \DoNotIndex{\countdef,\cr,\crcr,\csname}
+% \DoNotIndex{\day,\cr,\crcr,\csname}
+% \DoNotIndex{\countdef,\deadcycles,\def,\defaulthyphenchar}
+% \DoNotIndex{\defaultskewchar,\delcode,\delimiter,\delimiterfactor}
+% \DoNotIndex{\delimitershortfall,\dimen,\dimendef,\discretionary}
+% \DoNotIndex{\displayindent,\displaylimits,\displaystyle,\displaywidowpenalty}
+% \DoNotIndex{\displaywidth,\divide,\doublehyphendemerits,\dp,\dump}
+% \DoNotIndex{\edef,\else,\emergencystretch,\end}
+% \DoNotIndex{\endcsname,\endgroup,\endinput,\endlinechar}
+% \DoNotIndex{\eqno,\errhelp,\errmessage,\errorcontextlines}
+% \DoNotIndex{\errorstopmode,\escapechar,\everycr,\everydisplay}
+% \DoNotIndex{\everyhbox,\everyjob,\everymath,\everypar}
+% \DoNotIndex{\everyvbox,\exhyphenpenalty,\expandafter}
+% \DoNotIndex{\fam,\fi,\finalhyphendemerits,\firstmark}
+% \DoNotIndex{\floatingpenalty,\font,\fontdimen,\fontname,\futurelet}
+% \DoNotIndex{\gdef,\global,\globaldefs}
+% \DoNotIndex{\halign,\hangafter,\hangindent,\hbadness}
+% \DoNotIndex{\hbox,\hfil,\hfill,\hfilneg}
+% \DoNotIndex{\hfuzz,\hoffset,\holdinginserts,\hrule}
+% \DoNotIndex{\hsize,\hskip,\hss,\ht}
+% \DoNotIndex{\hyphenation,\hyphenchar,\hyphenpenalty}
+% \DoNotIndex{\if,\ifcase,\ifcat,\ifdim}
+% \DoNotIndex{\ifeof,\iffalse,\ifhbox,\ifhmode}
+% \DoNotIndex{\ifinner,\ifmmode,\ifnum,\ifodd}
+% \DoNotIndex{\iftrue,\ifvbox,\ifvmode,\ifvoid}
+% \DoNotIndex{\ifx,\ignorespaces,\immediate,\indent}
+% \DoNotIndex{\input,\inputlineno,\insert,\insertpenalties,\interlinepenalty}
+% \DoNotIndex{\jobname}
+% \DoNotIndex{\kern}
+% \DoNotIndex{\language,\lastbox,\lastkern,\lastpenalty}
+% \DoNotIndex{\lastskip,\lccode,\leaders,\left}
+% \DoNotIndex{\lefthyphenmin,\leftskip,\leqno,\let}
+% \DoNotIndex{\limits,\linepenalty,\lineskip,\lineskiplimit}
+% \DoNotIndex{\long,\looseness,\lower,\lowercase}
+% \DoNotIndex{\mag,\mark,\mathaccent,\mathbin}
+% \DoNotIndex{\mathchar,\mathchardef,\mathchoice,\mathclose}
+% \DoNotIndex{\mathcode,\mathinner,\mathop,\mathopen}
+% \DoNotIndex{\mathord,\mathpunct,\mathrel,\mathsurround}
+% \DoNotIndex{\maxdeadcycles,\maxdepth,\meaning,\medmuskip}
+% \DoNotIndex{\message,\mkern,\month,\moveleft}
+% \DoNotIndex{\moveright,\mskip,\multiply,\muskip,\muskipdef}
+% \DoNotIndex{\newlinechar,\noalign,\noboundary,\noexpand}
+% \DoNotIndex{\noindent,\nolimits,\nonscript,\nonstopmode}
+% \DoNotIndex{\nulldelimiterspace,\nullfont,\number}
+% \DoNotIndex{\omit,\openin,\openout,\or}
+% \DoNotIndex{\outer,\output,\outputpenalty,\over}
+% \DoNotIndex{\overfullrule,\overline,\overwithdelims}
+% \DoNotIndex{\pagedepth,\pagefilllstretch,\pagefillstretch,\pagefilstretch}
+% \DoNotIndex{\pagegoal,\pageshrink,\pagestretch,\pagetotal}
+% \DoNotIndex{\par,\parfillskip,\parindent,\parshape}
+% \DoNotIndex{\parskip,\patterns,\pausing,\penalty}
+% \DoNotIndex{\postdisplaypenalty,\predisplaypenalty,\predisplaysize}
+% \DoNotIndex{\pretolerance,\prevdepth,\prevgraf}
+% \DoNotIndex{\radical,\raise,\read,\relax}
+% \DoNotIndex{\relpenalty,\right,\righthyphenmin,\rightskip,\romannumeral}
+% \DoNotIndex{\scriptfont,\scriptscriptfont,\scriptscriptstyle,\scriptspace}
+% \DoNotIndex{\scriptstyle,\scrollmode,\setbox,\setlanguage}
+% \DoNotIndex{\sfcode,\shipout,\show,\showbox}
+% \DoNotIndex{\showboxbreadth,\showboxdepth,\showlists,\showthe}
+% \DoNotIndex{\skewchar,\skip,\skipdef,\spacefactor}
+% \DoNotIndex{\spaceskip,\span,\special,\splitbotmark}
+% \DoNotIndex{\splitfirstmark,\splitmaxdepth,\splittopskip,\string}
+% \DoNotIndex{\tabskip,\textfont,\textstyle,\the}
+% \DoNotIndex{\thickmuskip,\thinmuskip,\time,\toks}
+% \DoNotIndex{\toksdef,\tolerance,\topmark,\topskip}
+% \DoNotIndex{\tracingcommands,\tracinglostchars,\tracingmacros,\tracingonline}
+% \DoNotIndex{\tracingoutput,\tracingpages,\tracingparagraphs,\tracingrestores}
+% \DoNotIndex{\tracingstats}
+% \DoNotIndex{\uccode,\uchyph,\underline,\unhbox}
+% \DoNotIndex{\unhcopy,\unkern,\unpenalty,\unskip}
+% \DoNotIndex{\unvbox,\unvcopy,\uppercase}
+% \DoNotIndex{\vadjust,\valign,\vbadness,\vbox}
+% \DoNotIndex{\vcenter,\vfil,\vfill,\vfilneg}
+% \DoNotIndex{\vfuzz,\voffset,\vrule,\vsize}
+% \DoNotIndex{\vskip,\vsplit,\vss,\vtop}
+% \DoNotIndex{\wd,\widowpenalty,\write}
+% \DoNotIndex{\xdef,\xleaders,\xspaceskip}
+% \DoNotIndex{\year}
+%
+% \iffalse e-TeX commands \fi
+% \DoNotIndex{\protected,\detokenize,\unexpanded}
+% \DoNotIndex{\readline,\scantokens}
+% \DoNotIndex{\eTeXrevision,\eTeXversion,\currentgrouplevel,\currentgrouptype}
+% \DoNotIndex{\ifcsname,\ifdefined,\lastnodetype}
+% \DoNotIndex{\marks}
+% \DoNotIndex{\beginL,\beginR,\endL,\endR}
+% \DoNotIndex{\TeXXeTstate,\predisplaydirection}
+% \DoNotIndex{\interactionmode,\showgroups,\showtokens}
+% \DoNotIndex{\tracingscantokens,\tracinggroups}
+% \DoNotIndex{\everyeof,\middle,\unless}
+%
+% \iffalse LaTeX commands \fi
+% \DoNotIndex{\magstep,\magstephalf,\space}
+% \DoNotIndex{\NeedTeXFormat,\undefined}
+%
+%
+% \title{musixlmd}
+% \author{bell}
+% \date{\filedate}
+% \maketitle
+% \tableofcontents
+% \clearpage
+% \MakeShortVerb{\|}
+%
+% \StopEventually{}
+% \section{実装}
+%
+% 読み込み順の指定：\file{musixtex.tex}を読み込んでから\file{musixlmd.tex}を
+% 読み込むようにしないとエラーが出るようになっている。
+% plain \TeX 流の指定なので\file{.sty}にするなら\LaTeX 流の方法にしたいところ。
+%    \begin{macrocode}
+%<*codeTeX>
+\immediate\write16{MusiX\space latin\space modern\space<2025/12/03>}
+\ifx\undefined\startpiece
+  \errmessage{Input musixtex.tex before musixlmd.tex}\fi
+%</codeTeX>
+%    \end{macrocode}
+% \file{.sty}用の宣言．
+%    \begin{macrocode}
+%<*codeLaTeX>
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{musixlmd}
+  [2025/12/03 MusiX latin modern package. version 1.0.0]
+%</codeLaTeX>
+%    \end{macrocode}
+%    \begin{macrocode}
+%<*code>
+%    \end{macrocode}
+% 7pt.
+%    \begin{macrocode}
+\font\sevenrm=ec-lmr7
+\font\sevenbf=ec-lmbx7
+\font\sevenit=ec-lmri7
+\font\sevenbi=ec-lmbxi10 at 7pt
+\font\sevensc=ec-lmcsc10 at 7pt
+
+%    \end{macrocode}
+% 8pt.
+%    \begin{macrocode}
+\font\eightrm=ec-lmr8
+\font\eightbf=ec-lmbx8
+\font\eightit=ec-lmri8
+\font\eightbi=ec-lmbxi10 at 8pt
+\font\eightsc=ec-lmcsc10 at 8pt
+
+%    \end{macrocode}
+% 9pt.
+%    \begin{macrocode}
+\font\ninerm=ec-lmr9
+\font\ninebf=ec-lmbx9
+\font\nineit=ec-lmri9
+\font\ninebi=ec-lmbxi10 at 9pt
+\font\ninesc=ec-lmcsc10 at 9pt
+
+%    \end{macrocode}
+% 10pt.
+%    \begin{macrocode}
+\font\tenrm=ec-lmr10
+\font\tenbf=ec-lmbx10
+\font\tenit=ec-lmri10
+\font\tenbi=ec-lmbxi10
+\font\tensc=ec-lmcsc10
+
+%    \end{macrocode}
+% 11pt.
+%    \begin{macrocode}
+\font\elevenrm=ec-lmr9 scaled \magstephalf
+\font\elevenbf=ec-lmbx9 scaled \magstephalf
+\font\elevenit=ec-lmri9 scaled \magstephalf
+\font\elevenbi=ec-lmbxi10 at 11pt
+\font\elevensc=ec-lmcsc10 at 11pt
+
+%    \end{macrocode}
+% 12pt.
+%    \begin{macrocode}
+\font\twelverm=ec-lmr12
+\font\twelvebf=ec-lmbx12
+\font\twelveit=ec-lmri12
+\font\twelvebi=ec-lmbxi10 scaled \magstep1
+\font\twelvesc=ec-lmcsc10 scaled \magstep1
+
+%    \end{macrocode}
+% 14pt.
+%    \begin{macrocode}
+\font\frtrm=ec-lmr12 scaled \magstep1
+\font\frtbf=ec-lmbx12 scaled \magstep1
+\font\frtit=ec-lmri12 scaled \magstep1
+\font\frtsc=ec-lmcsc10 scaled \magstep2
+\font\frtbi=ec-lmbxi10 scaled \magstep2
+
+%    \end{macrocode}
+% 17pt.
+%    \begin{macrocode}
+% 17pt
+\font\svtrm=ec-lmr12 scaled \magstep2
+\font\svtbf=ec-lmbx12 scaled \magstep2
+\font\svtit=ec-lmri12 scaled \magstep2
+\font\svtsc=ec-lmcsc10 scaled \magstep3
+\font\svtbi=ec-lmbxi10 scaled \magstep3
+
+%    \end{macrocode}
+% 20pt.
+%    \begin{macrocode}
+% 20pt
+\font\twtyrm=ec-lmr12 scaled \magstep3
+\font\twtybf=ec-lmbx12 scaled \magstep3
+\font\twtyit=ec-lmri12 scaled \magstep3
+\font\twtysc=ec-lmcsc10 scaled \magstep4
+\font\twtybi=ec-lmbxi10 scaled \magstep4
+
+%    \end{macrocode}
+% 25pt.
+%    \begin{macrocode}
+% 25pt
+\font\twfvrm=ec-lmr12 scaled \magstep4
+\font\twfvbf=ec-lmbx12 scaled \magstep4
+\font\twfvit=ec-lmri12 scaled \magstep4
+\font\twfvsc=ec-lmcsc10 scaled \magstep5
+\font\twfvbi=ec-lmbxi10 scaled \magstep5
+
+%    \end{macrocode}
+% ppff.
+%    \begin{macrocode}
+% ppff.
+\font\ppfftwelve=ec-lmbxi10 at 8pt
+\font\ppffsixteen=ec-lmbxi10
+\font\ppfftwenty=ec-lmbxi10 scaled \magstep1
+\font\ppfftwentyfour=ec-lmbxi10 scaled \magstep2
+\font\ppfftwentynine=ec-lmbxi10 scaled \magstep3
+
+%
+% tt fonts needed by musixsty
+%
+\font\eighttt=ec-lmtt8
+\font\ninett=ec-lmtt9
+\font\tentt=ec-lmtt10
+\font\twelvett=ec-lmtt12
+\font\frttt=ec-lmtt12 scaled \magstep1
+\font\svttt=ec-lmtt12 scaled \magstep2
+\font\twtytt=ec-lmtt12 scaled \magstep3
+\font\twfvtt=ec-lmtt12 scaled \magstep4
+
+%
+% sl fonts needed by musixsty
+%
+\font\eightsl=ec-lmro8
+\font\ninesl=ec-lmro9
+\font\tensl=ec-lmro10
+\font\twelvesl=ec-lmro12
+\font\frtsl=ec-lmro12 scaled \magstep1
+\font\svtsl=ec-lmro12 scaled \magstep2
+\font\twtysl=ec-lmro12 scaled \magstep3
+\font\twfvsl=ec-lmro12 scaled \magstep4
+
+%</code>
+%    \end{macrocode}
+%
+% 以上で終わりです.
+%
+%
+% \Finale
+% \PrintIndex \PrintChanges
