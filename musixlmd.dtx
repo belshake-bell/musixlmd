@@ -183,14 +183,10 @@
 % \StopEventually{}
 % \section{実装}
 %
-% 読み込み順の指定：\file{musixtex.tex}を読み込んでから\file{musixlmd.tex}を
-% 読み込むようにしないとエラーが出るようになっている。
-% plain \TeX 流の指定なので\file{.sty}にするなら\LaTeX 流の方法にしたいところ。
+% \file{.tex}用の宣言．
 %    \begin{macrocode}
 %<*codeTeX>
 \immediate\write16{MusiX\space latin\space modern\space<2025/12/03>}
-\ifx\undefined\startpiece
-  \errmessage{Input musixtex.tex before musixlmd.tex}\fi
 %</codeTeX>
 %    \end{macrocode}
 % \file{.sty}用の宣言．
@@ -198,11 +194,17 @@
 %<*codeLaTeX>
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{musixlmd}
-  [2025/12/03 MusiX latin modern package. version 1.0.0]
+  [2025/12/03 MusiX latin modern package. version 1.0.1]
 %</codeLaTeX>
 %    \end{macrocode}
+% 読み込み順の指定：\file{musixtex.tex}を読み込んでから
+% \file{musixlmd.tex}ないし\file{musixlmd.sty}を
+% 読み込むようにしないとエラーが出るようになっている。
+% plain \TeX 流の指定なので\file{.sty}にするなら\LaTeX 流の方法にしたいところ。
 %    \begin{macrocode}
 %<*code>
+\ifx\undefined\startpiece
+  \errmessage{Input musixtex.tex before musixlmd.tex}\fi
 %    \end{macrocode}
 % 7pt.
 %    \begin{macrocode}
